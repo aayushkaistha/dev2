@@ -1,0 +1,53 @@
+<apex:page controller="EinsteinLanguageDemo" tabStyle="Lead">
+  
+  <apex:sectionHeader title="Einstein Language Demo" />
+  
+  <apex:form >
+      <apex:pageBlock id="inputBlock" mode="maindetail">
+          <apex:pageBlockSection columns="2" title="Testing {!selectedAPI} API">
+              <apex:pageBlockSectionItem >
+                  Select API to Test: <apex:selectRadio value="{!selectedAPI}">
+                                          <apex:selectOptions value="{!apiOptions}" />
+                                          <apex:actionSupport event="onchange" reRender="inputBlock" />
+                                      </apex:selectRadio>
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem >
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem >
+                  Endpoint: <apex:outputText value="{!endPoint}" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem >
+                  Model ID: <apex:inputText value="{!modelID}" />
+              </apex:pageBlockSectionItem>
+              
+              <apex:pageBlockSectionItem >
+                  Customer Feedback: <apex:inputTextarea value="{!customerFeedback}" />
+              </apex:pageBlockSectionItem>
+          </apex:pageBlockSection>
+          
+          <apex:pageBlockButtons location="bottom">
+              <apex:commandButton value="Submit" action="{!submitToEinstein}" />
+          </apex:pageBlockButtons>
+      </apex:pageBlock>
+  </apex:form>
+  
+  <apex:pageBlock id="outputBlock" mode="maindetail">
+      <apex:pageBlockSection columns="1" title="Output">
+          <apex:pageBlockSectionItem >
+              Output:
+              <apex:repeat value="{!predictionResult.probabilities}" var="probability">
+                  <apex:outputText value="{!probability.label} : {!ROUND(probability.probability * 100, 5)}%" /><br/>
+              </apex:repeat>
+          </apex:pageBlockSectionItem>
+          
+          <apex:pageBlockSectionItem >
+              RAW Output: <apex:outputText value="{!rawOutput}" />
+          </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+  </apex:pageBlock>
+  
+  
+</apex:page>

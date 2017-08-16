@@ -1,0 +1,42 @@
+<apex:page controller="EinsteinIntentSetup">
+  <apex:sectionHeader title="Einstein Language Intent Setup" />
+  
+  <apex:pageMessages id="messages" /> <!-- Display messages here! -->
+  
+  <apex:form >
+      <apex:pageBlock mode="maindetail">
+          <apex:pageBlockSection title="Upload new file to Einstein" columns="2">
+              <apex:pageBlockSectionItem >
+                  File URL: <apex:inputText value="{!fileUrl}"/>
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >
+                  Dataset ID: <apex:inputText value="{!datasetId}"/>
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >
+                  Model ID: <apex:inputText value="{!modelId}"/>
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >
+                  Status: <apex:outputText value="{!uploadStatus}"/>
+              </apex:pageBlockSectionItem>
+          </apex:pageBlockSection>
+          
+          <apex:pageBlockButtons location="bottom">
+              <apex:commandButton value="Upload File" action="{!uploadFile}" />
+              <apex:commandButton value="Train" action="{!trainDataSet}" />
+              <apex:commandButton value="Check Upload File Status" action="{!checkUploadStatus}" />
+              <apex:commandButton value="Check Training Status" action="{!checkTrainingStatus}" />
+          </apex:pageBlockButtons>
+      </apex:pageBlock>
+  </apex:form>
+  
+  <apex:pageBlock mode="maindetail">
+      <apex:pageBlockSection title="Raw Output" columns="2">
+          <apex:pageBlockSectionItem >
+              Raw Output: <apex:outputText value="{!rawOutput}"/>
+          </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+  </apex:pageBlock>
+  
+</apex:page>

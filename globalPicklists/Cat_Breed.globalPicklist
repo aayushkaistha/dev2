@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalPicklist xmlns="http://soap.sforce.com/2006/04/metadata">
+    <globalPicklistValues>
+        <fullName>Bengal</fullName>
+        <default>false</default>
+    </globalPicklistValues>
+    <globalPicklistValues>
+        <fullName>Sphynx</fullName>
+        <default>false</default>
+    </globalPicklistValues>
+    <globalPicklistValues>
+        <fullName>British Shorthair</fullName>
+        <default>false</default>
+    </globalPicklistValues>
+    <masterLabel>Cat Breed</masterLabel>
+    <sorted>false</sorted>
+</GlobalPicklist>

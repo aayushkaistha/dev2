@@ -1,0 +1,5 @@
+<apex:page showHeader="false" sidebar="false">
+  <div style="width: 100%; height: 100%; background-image: url('/resource/1501082574000/background');">
+      <img src="/resource/1501082574000/background" />
+  </div>
+</apex:page>

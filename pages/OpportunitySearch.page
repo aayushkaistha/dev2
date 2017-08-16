@@ -1,0 +1,32 @@
+<apex:page controller="OpportunitySearchController">
+
+	<apex:form >
+	<apex:pageBlock >
+		
+		<apex:pageBlockSection >
+		
+			<apex:pageBlockSectionItem >
+				Name: <apex:inputText value="{!name}" />
+			</apex:pageBlockSectionItem>
+		
+			<apex:pageBlockSectionItem >
+				Account Name: <apex:inputText value="{!accountName}" />
+			</apex:pageBlockSectionItem>
+		
+		</apex:pageBlockSection>
+		
+		<apex:pageBlockButtons >
+			<apex:commandButton value="Search" action="{!searchOpportunities}" />
+		</apex:pageBlockButtons>
+	</apex:pageBlock>
+	
+	<apex:pageBlock >
+		<apex:pageBlockTable value="{!lstOpportunities}" var="opp">
+			<apex:column value="{!opp.Id}" />
+			<apex:column value="{!opp.Name}" />
+			<apex:column value="{!opp.account.Name}" />
+		</apex:pageBlockTable>
+	</apex:pageBlock>
+	</apex:form>
+
+</apex:page>
